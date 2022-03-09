@@ -1,7 +1,7 @@
 <template>
   <v-card
     class="mx-auto overflow-hidden"
-    height="400"
+    height="100"
   >
     <v-app-bar
       color="deep-purple"
