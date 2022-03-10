@@ -3,7 +3,7 @@
     <v-main>
       <nav-header></nav-header>
       <form-registro></form-registro>
-      <product-list></product-list>
+      <items-list></items-list>
     </v-main>
   </v-app>
 </template>
@@ -11,7 +11,7 @@
 <script>
 import FormRegistro from './components/FormRegistro.vue';
 import NavHeader from './components/NavHeader.vue';
-import ProductList from './components/ProductList.vue'
+import ItemsList from './components/Card.vue';
 
 export default {
   name: 'App',
@@ -19,11 +19,7 @@ export default {
   components: {
     NavHeader,
     FormRegistro,
-    ProductList
+    ItemsList
   },
-
-  data: () => ({
-    //
-  }),
 };
 </script>

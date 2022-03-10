@@ -1,23 +1,14 @@
-<template>
-  <v-card
-    :loading="loading"
-    class="mx-auto my-12"
-    max-width="374"
-  >
-    <template slot="progress">
-      <v-progress-linear
-        color="deep-purple"
-        height="10"
-        indeterminate
-      ></v-progress-linear>
-    </template>
 
+<template>
+<div>
+<v-card v-for="(item,index) in array" :key="index">
+ 
     <v-img
       height="250"
-      src="../../public/images/sushi-1.jpeg"
+      :src="item.image"
     ></v-img>
 
-    <v-card-title>Cafe Badilico</v-card-title>
+    <v-card-title>{{item.title}}</v-card-title>
 
     <v-card-text>
       <v-row
@@ -49,13 +40,19 @@
 
     <v-card-title>Tonight's availability</v-card-title>
   </v-card>
+
+</div>
 </template>
 
 <script>
+//import ItemsList from './productsJSON.vue';
   export default {
+    name:'ProductList',
     data: () => ({
       loading: false,
-      selection: 1
-    })
+      selection: 1,
+      
+    }),
+    props: ['array']
   }
 </script>
