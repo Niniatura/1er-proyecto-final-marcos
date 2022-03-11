@@ -1,53 +1,43 @@
 
-<template>
-<div>
-<v-card v-for="(item,index) in array" :key="index">
- 
-    <v-img
-      height="250"
-      :src="item.image"
-    ></v-img>
+<template> 
+   <v-content>
+      <v-container fluid>
+      
 
-    <v-card-title>{{item.title}}</v-card-title>
+ <v-layout>
+    <v-flex >
+      <v-card>
+        <v-container fluid grid-list-md>
+          <v-layout row wrap>
+            <v-flex
+              xs12
+              md6
+              lg3
+              v-for="n in 8"
+              :key="n"
+            >
+             
+                <single-card></single-card>
+             
+            </v-flex>
+          </v-layout>
+        </v-container>
+        </v-card>
+    </v-flex>
+  </v-layout>
 
-    <v-card-text>
-      <v-row
-        align="center"
-        class="mx-0"
-      >
-        <v-rating
-          :value="4.5"
-          color="amber"
-          dense
-          half-increments
-          readonly
-          size="14"
-        ></v-rating>
 
-        <div class="grey--text ms-4">
-          4.5 (413)
-        </div>
-      </v-row>
-
-      <div class="my-4 text-subtitle-1">
-        $ • Italian, Cafe
-      </div>
-
-      <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
-    </v-card-text>
-
-    <v-divider class="mx-4"></v-divider>
-
-    <v-card-title>Tonight's availability</v-card-title>
-  </v-card>
-
-</div>
+      </v-container>
+    </v-content>
 </template>
 
 <script>
-//import ItemsList from './productsJSON.vue';
+import SingleCard from './SingleCard.vue';
   export default {
     name:'ProductList',
+    components: {
+        SingleCard
+    },
     data: () => ({
       loading: false,
       selection: 1,
@@ -56,3 +46,11 @@
     props: ['array']
   }
 </script>
+<style scoped>
+.product-list{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-top: 5%;
+}
+</style>

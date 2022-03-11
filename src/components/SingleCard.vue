@@ -1,61 +1,46 @@
-
-<!--<template>
-    <div>
-        <v-card v-for="(item,index) in items" :key="index">
-            <v-card-title>{{item.title}}</v-card-title>
-            <v-img
-             :src="item.image"
-             aspect-ratio="1"
-            ></v-img>
-        </v-card>
-    </div>
-</template>-->
 <template>
-<div>
-  <v-card v-for="(item,index) in items" :key="index"
-    class="mx-auto my-12"
-    max-width="374"
-  >
+  <v-container>
+          
+            <v-flex
+              xs12
+              md6
+              lg3 
+               v-for="(item,index) in items" :key="index"
+            >
+
+  <v-card >
     <v-img :src="require(`../../public/images/${item.image}`)"></v-img>
 
 
     <v-card-title>{{item.title}}</v-card-title>
 
     <v-card-text>
-      <v-row
-        align="center"
-        class="mx-0"
-      >
-        
-      </v-row>
+      
 
       <div class="my-4 text-subtitle-1">
-        $ • Italian, Cafe
+        $ {{item.price}}
       </div>
 
-      <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
+      <div>{{item.description}}</div>
+      <div><a href="">More details...</a></div>
     </v-card-text>
 
     <v-divider class="mx-4"></v-divider>
-
-    <v-card-title>Tonight's availability</v-card-title>
-
-    <v-card-actions>
-      <v-btn
-        color="deep-purple lighten-2"
-        text
-        @click="reserve"
-      >
-        Reserve
-      </v-btn>
-    </v-card-actions>
+    <v-btn block>
+    Add to cart
+  </v-btn>
+    
   </v-card>
-  </div>
+ 
+    </v-flex>
+         
+        </v-container>
+  
 </template>
 
 <script>
 export default {
-    name:'ItemsList',
+    name:'SingleCard',
     data() {
     return{ 
     loading: false,
